@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   match('/', {:via => :get, :to => 'sections#index'})
   match('sections', {:via => :get, :to => 'sections#index'})
+  # match('sections/:id', {:via => :get, :to => 'sections#show'})
 end

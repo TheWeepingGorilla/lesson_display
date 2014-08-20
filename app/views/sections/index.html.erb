@@ -2,7 +2,11 @@
 
 <ul>
   <% @sections.each do |section| %>
-    <li><a href="/sections/<%= section.id %>"><%= section.name %></a></li>
+    <li><a href="/sections/<%= section.id %>"><%= section.name %></a>
+      <% section.lessons.each do |lesson| %>
+        <ul><li><a href ="/lessons/<%=lesson.id %>"><%= lesson.name %></a></li></ul>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
