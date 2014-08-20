@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  match('/', {:via => :get, :to => 'lessons#index'})
+  # match('/', {:via => :get, :to => 'lessons#index'})
   match('lessons', {:via => :get, :to => 'lessons#index'})
   match('lessons', {:via => :post, :to => 'lessons#create'})
   match('lessons/new', {:via => :get, :to => 'lessons#new'})
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   match('lessons/:id', {:via => :delete, :to => 'lessons#destroy'})
   match('lessons/:id/edit', {:via => :get, :to => 'lessons#edit'})
 
+  match('/', {:via => :get, :to => 'sections#index'})
+  match('sections', {:via => :get, :to => 'sections#index'})
 end
