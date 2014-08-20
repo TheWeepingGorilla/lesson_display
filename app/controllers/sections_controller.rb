@@ -1,16 +1,42 @@
 class SectionsController < ApplicationController
   def index
     @sections = Section.all
-    @lesson_array = []
-    @sections.all.each do |section|
-      @lesson_array << section.show_lessons_from_section
-    end
     render('sections/index.html.erb')
   end
 
-  # def show
-  #   @section = section.find(params[:id])
-  #   @lessons =
-  #   render('sections/show.html.erb')
-  # end
+  def new
+    @section = Section.new
+    render('sections/new.html.erb')
+  end
+
+  def create
+    @section = Section.new(params[:section])
+    if @section.save
+      redirect_to("/sections")
+    else
+      render('sections/new.html.erb')
+    end
+  end
+
+  def update
+    @section = Section.find(params[:id])
+    if @section.update(params[:section])
+      redirect_to("/")
+    else
+      render('sections/edit.html.erb')
+    end
+  end
+
+  def edit
+    @section = Section.find(params[:id])
+    render('sections/edit.html.erb')
+  end
+
+  def destroy
+    @section = Section.find(params[:id])
+    @section.destroy
+    render('sections/destroy.html.erb')
+  end
+
+
 end
